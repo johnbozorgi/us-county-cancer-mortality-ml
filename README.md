@@ -1,6 +1,6 @@
 # Cancer Mortality Prediction Across US Counties
 
-Cancer death rates in the US vary a lot by county — sometimes by a factor of two or three between neighboring regions. Some of that variation is explained by incidence rates, but a surprising amount comes down to socioeconomic factors: how poor a county is, how many people are uninsured, how isolated the population is.
+Cancer death rates in the US vary a lot by county; sometimes by a factor of two or three between neighboring regions. Some of that variation is explained by incidence rates, but a surprising amount comes down to socioeconomic factors: how poor a county is, how many people are uninsured, how isolated the population is.
 
 This project tries to model that relationship. I merged county-level cancer data from the CDC with the Social Vulnerability Index, trained an XGBoost model to predict mortality rates, and used SHAP to figure out which features actually matter.
 
@@ -8,7 +8,7 @@ This project tries to model that relationship. I merged county-level cancer data
 
 ## Project Structure
 
-\`\`\`
+```
 us-county-cancer-mortality-ml/
 ├── data/                     # not tracked in git (see below)
 ├── notebooks/
@@ -21,7 +21,7 @@ us-county-cancer-mortality-ml/
 ├── main.py
 ├── requirements.txt
 └── README.md
-\`\`\`
+```
 
 ---
 
@@ -29,7 +29,7 @@ us-county-cancer-mortality-ml/
 
 Three datasets, all publicly available:
 
-- Cancer incidence by county — NCI SEER
+- Cancer incidence by county - NCI SEER
 - Cancer mortality by county, 2019–2023 — CDC Wonder
 - Social Vulnerability Index, 2022 — CDC ATSDR
 
@@ -67,16 +67,20 @@ The interactive map (`visualizations/cancer_mortality_map.html`) shows predicted
 
 ## Running it
 
-\`\`\`bash
+```bash
 git clone https://github.com/johnbozorgi/us-county-cancer-mortality-ml.git
 cd us-county-cancer-mortality-ml
+```
 
+```bash
 python -m venv .venv
 source .venv/bin/activate
+```
 
+```bash
 pip install -r requirements.txt
 python main.py
-\`\`\`
+```
 
 The data files aren't included in the repo because they're too large. Download links are in the notebook.
 
@@ -84,12 +88,14 @@ The data files aren't included in the repo because they're too large. Download l
 
 ## Dependencies
 
-xgboost, shap, scikit-learn, pandas, numpy, matplotlib, seaborn, plotly
+`xgboost` · `shap` · `scikit-learn` · `pandas` · `numpy` · `matplotlib` · `seaborn` · `plotly`
 
 ---
 
 ## Author
 
-Hamid Janbozorgi
-MS Computer Science
-github.com/johnbozorgi
+**Hamid Janbozorgi**
+
+MS Computer Science — University of Illinois Urbana-Champaign (UIUC)
+
+[hamidj2@illinois.edu](mailto:hamidj2@illinois.edu) · [github.com/johnbozorgi](https://github.com/johnbozorgi)
