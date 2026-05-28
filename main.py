@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import subprocess
+import sys
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+notebooks = [
+    "notebooks/01_eda_and_preprocessing.ipynb",
+    "notebooks/02_model_training_and_eval.ipynb",
+    "notebooks/03_shap_explainability.ipynb",
+    "notebooks/04_geospatial_visualization.ipynb",
+]
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for nb in notebooks:
+    print(f"Running {nb}...")
+    result = subprocess.run(
+        ["jupyter", "nbconvert", "--to", "notebook", "--execute", nb, "--inplace"],
+        capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        print(f"Error in {nb}:\n{result.stderr}")
+        sys.exit(1)
+    print(f"Done: {nb}")
